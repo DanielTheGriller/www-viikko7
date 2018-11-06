@@ -39,3 +39,12 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://reader_user:salasana123@ds024548.mlab.com:24548/local_libary';
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
